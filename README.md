@@ -1,6 +1,9 @@
 # rails-lite-auth
 
+[![CI](https://github.com/nakahashi/rails-lite-auth/actions/workflows/ci.yml/badge.svg)](https://github.com/nakahashi/rails-lite-auth/actions/workflows/ci.yml)
+
 素の Rails のみで実装したパスワード認証サンプルアプリです。
+新規に Rails アプリを作成するときにテンプレートとして使うことを想定しています。
 
 ## 技術スタック
 
