@@ -18,6 +18,30 @@ jobs:
       - name: RuboCop
         run: bundle exec rubocop -f github
 
+  brakeman:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+
+      - uses: ruby/setup-ruby@97ecb7b512899eb71ab1bf2310a624c6f1589ac6 # v1.308.0
+        with:
+          bundler-cache: true
+
+      - name: Brakeman
+        run: bundle exec brakeman -q
+
+  bundler-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+
+      - uses: ruby/setup-ruby@97ecb7b512899eb71ab1bf2310a624c6f1589ac6 # v1.308.0
+        with:
+          bundler-cache: true
+
+      - name: Bundler Audit
+        run: bundle exec bundler-audit
+
   rspec:
     runs-on: ubuntu-latest
     needs: rubocop
