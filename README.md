@@ -1,24 +1,49 @@
-# README
+# rails-lite-auth
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+素の Rails のみで実装したパスワード認証サンプルアプリです。
 
-Things you may want to cover:
+## 技術スタック
 
-* Ruby version
+- Rails
+- SQLite
+- ERB
+- RSpec
 
-* System dependencies
+## セットアップ
 
-* Configuration
+### 前提
 
-* Database creation
+[mise](https://mise.jdx.dev/) がインストールされていること。
 
-* Database initialization
+### 手順
 
-* How to run the test suite
+```bash
+mise install
+bundle install --path vendor/bundle
+bundle exec rails db:migrate
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## サーバー起動
 
-* Deployment instructions
+```bash
+bundle exec rails server
+```
 
-* ...
+http://localhost:3000 にアクセスしてください。
+
+## 機能
+
+| パス | 説明 |
+|---|---|
+| `GET /` | ホーム（要ログイン） |
+| `GET /signup` | 新規登録フォーム |
+| `POST /signup` | ユーザー登録 |
+| `GET /login` | ログインフォーム |
+| `POST /login` | ログイン |
+| `DELETE /logout` | ログアウト |
+
+## テスト実行
+
+```bash
+bundle exec rspec
+```
