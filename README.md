@@ -29,7 +29,7 @@ bundle exec rails db:migrate
 ## サーバー起動
 
 ```bash
-bundle exec rails server
+bin/dev
 ```
 
 http://localhost:3000 にアクセスしてください。
