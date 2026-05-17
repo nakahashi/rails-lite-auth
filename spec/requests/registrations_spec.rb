@@ -32,7 +32,7 @@ RSpec.describe "Registrations", type: :request do
     context "メールアドレスが空の場合" do
       it "422を返すこと" do
         post signup_path, params: { user: { email: "", password: "password123", password_confirmation: "password123" } }
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
       end
 
       it "ユーザーが作成されないこと" do
@@ -45,7 +45,7 @@ RSpec.describe "Registrations", type: :request do
     context "パスワード確認が一致しない場合" do
       it "422を返すこと" do
         post signup_path, params: { user: { email: "new@example.com", password: "password123", password_confirmation: "different" } }
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
       end
     end
 
@@ -54,7 +54,7 @@ RSpec.describe "Registrations", type: :request do
 
       it "422を返すこと" do
         post signup_path, params: valid_params
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
       end
     end
   end

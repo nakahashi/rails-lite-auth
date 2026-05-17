@@ -35,7 +35,7 @@ RSpec.describe "Sessions", type: :request do
     context "メールアドレスが間違っている場合" do
       it "422を返すこと" do
         post login_path, params: { email: "wrong@example.com", password: "password123" }
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
       end
 
       it "セッションにuser_idが保存されないこと" do
@@ -47,7 +47,7 @@ RSpec.describe "Sessions", type: :request do
     context "パスワードが間違っている場合" do
       it "422を返すこと" do
         post login_path, params: { email: user.email, password: "wrongpassword" }
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
       end
     end
   end
