@@ -23,6 +23,23 @@
   </head>
 
   <body>
+    <nav>
+      <% if logged_in? %>
+        <%= current_user.email %> でログイン中 |
+        <%= button_to "ログアウト", logout_path, method: :delete %>
+      <% else %>
+        <%= link_to "ログイン", login_path %> |
+        <%= link_to "新規登録", signup_path %>
+      <% end %>
+    </nav>
+
+    <% if notice %>
+      <p><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p><%= alert %></p>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
